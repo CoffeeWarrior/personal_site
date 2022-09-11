@@ -1,0 +1,35 @@
+.Nav{
+    min-height: 5vh;
+    padding-top: 1%;
+    width: 100%;
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-basis: 0;
+
+        li{
+            list-style: None;
+            @include maintext;
+        }
+        :first-child{
+            flex: 9;
+            margin-right: 2%;
+        }
+        :not(:first-child){
+            flex: 1;
+            margin-right: 2%;
+        }
+
+        a{
+            text-decoration: none;
+            :hover{
+                color: $whiter-white;
+            }
+        }
+        
+    }
+    border-bottom: 1px solid $white
+}
+

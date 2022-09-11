@@ -1,0 +1,35 @@
+.LoginPage {
+    height: 100%;
+    @include centerFlexbox;
+    & > .Login {
+        @include gradientBox;
+        flex-direction: column;
+        & > .Logintext {
+            flex: 4;
+            padding-right: 5%;
+        }
+
+        &  > .Inputs {
+            margin-bottom: .5em;    
+            flex: 4;
+            width: 60%;
+            & >  input{
+                padding: 12px 20px;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-family: "Oswald";
+                font-size: 1.0em;
+                & :focus{
+                    
+                }
+            }
+            & > .button {
+                margin-top: 1.4em;
+                border-radius: 10px;
+                width: 40%;
+                background-color: $whiter-white;
+            }
+        }
+
+    } 
+}

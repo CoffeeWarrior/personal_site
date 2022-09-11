@@ -1,0 +1,34 @@
+.Carousel{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    width: 100%;
+    overflow: hidden;
+    & > .CarouselItem{
+        flex: 0 0 100%;
+        min-height: 100%;
+        width: 100%;
+        & > p{
+            padding-right: 3%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.CircleHolder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .Circle{
+        $diameter: 16px;
+        width: $diameter;
+        height: $diameter;
+        border: 2px solid $white;
+        margin: 0 $diameter*.5; 
+        border-radius: 100%;
+    }
+    .activate{
+        background-color: $white;
+    }
+}

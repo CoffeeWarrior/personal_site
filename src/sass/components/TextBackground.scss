@@ -1,0 +1,25 @@
+.TextBackground{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+
+    & > .background{
+        opacity: .53;
+    }
+
+    $flowers: 1, 3, 5, 7, 9;
+    @each $flower in $flowers {
+        & > .flowers-#{$flower}{
+            z-index: 2;
+            @include twinkle(#{$flower}s)
+        }
+    
+    }
+
+    & > img{
+        width: 60%;
+        position: absolute;
+        transform: translate(-50%, -50%)
+    }
+}

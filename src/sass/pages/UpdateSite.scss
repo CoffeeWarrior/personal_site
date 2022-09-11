@@ -1,0 +1,11 @@
+.UpdateSite{
+    & > .select {
+        &[multiple] {
+            height: 1.5em;
+            vertical-align: top;
+            &:focus, &:active {
+                height: auto;
+            }
+        }
+    }
+}

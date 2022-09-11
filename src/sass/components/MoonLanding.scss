@@ -1,0 +1,52 @@
+.MoonLanding{
+    position: relative;
+    flex: 10;
+
+    // margin-top: 3%;
+    // margin-right: 6%;
+    & > img{
+        position: absolute;
+        top: 0px;
+        left: 0px
+    }
+    $delay: 1.2s;
+    $rate: 1.5s;
+    & > .lucas{
+        z-index: 5;
+        @include float($delay, 6s, $rate)
+    }
+
+    & > .laptop{
+        z-index: 4;
+        @include float($delay - 0.1s, 6s, $rate)
+    }
+
+    & > .background{
+    }
+
+    & > .invis{
+        position: relative;
+        width: 100%;
+        opacity: 0;
+    }
+
+    & > .stars{
+        z-index: 1;
+    }
+    
+    $flowers: 1, 2, 3, 4, 5;
+        @each $flower in $flowers {
+            & > .flowers-#{$flower}{
+                z-index: 2;
+                @include twinkle(#{$flower}s)
+            }
+        
+    }
+
+    & > .moon{
+        z-index: 3;
+    }
+
+
+}
+

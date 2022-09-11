@@ -1,0 +1,80 @@
+@mixin maintext {
+    color: $white;
+    font-size: 2.5em;
+    font-weight: 400;
+    text-shadow: $text-shadow  2px 2px;
+}
+
+@mixin twinkle($delay){
+        animation: twinkle;
+        animation-duration: 2s;
+        animation-delay: $delay;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+}
+
+@keyframes twinkle{
+    0%{
+        opacity: 1;
+    }
+    
+    100%{
+        opacity: .5;
+    }
+}
+
+
+@mixin float($delay-first, $duration-first, $duration-second){
+    $delay-second: $duration-first + $delay-first;
+    opacity:0;
+
+    animation: floatdown, float;
+    animation-duration: $duration-first, $duration-second;
+    animation-delay: $delay-first, $delay-second;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-direction: alternate;
+}
+
+$float-height: 5%;
+$transform-between: translateY($float-height) rotate(-5deg) scale(.925) translateX(3%);
+@keyframes floatdown {
+    0%{
+        transform: translateY(-90vh) rotate(180deg);
+        opacity: 1;
+    }
+
+    100%{
+        transform: $transform-between;
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%{
+        transform: $transform-between;
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-$float-height) rotate(-2deg);
+        opacity: 1;
+    }
+}
+
+
+@mixin centerFlexbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin gradientBox{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
+        padding: 3%;
+        margin-bottom: 10%;
+}

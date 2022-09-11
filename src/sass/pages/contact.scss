@@ -1,0 +1,80 @@
+.contactPage{
+    @include centerFlexbox;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    & > .contactContent{
+        @include gradientBox;
+        width: 50%;
+        align-items: center;
+        
+        .image{
+            z-index: 100;
+            flex: 5;
+            & > .lucas-cropped{
+                transform: scaleX(-1) rotate(10deg);
+                width: 100%;
+            }
+        }
+
+        .text{
+            padding-left: 6%;
+            padding-top: 4%;
+            z-index: 100;
+            flex: 2;
+            .item{
+                display: flex;
+                flex-direction: row;
+                margin-top: 1rem;
+                //height: fit-content;
+                //align-items: center;
+    
+                &:hover{
+                    color: $whiter-white;
+                    transition: all .2s;
+                    text-shadow: 2px 1px black;
+                    cursor: pointer;
+                }
+    
+                & > .icon{
+                    margin-right: 20px;
+                    width: 50px;
+                    height: 50px;
+                }
+    
+                a{
+                    text-decoration: none;
+                }
+    
+                h1{
+                    text-decoration: none;
+                }
+    
+        }
+    
+        
+        }
+    
+    }
+
+
+
+}
+
+.copiedPopup{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 70px;
+    width: fit-content;
+    font-size: 1rem;
+    animation: fade 1s .75s;
+}
+
+@keyframes fade {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
