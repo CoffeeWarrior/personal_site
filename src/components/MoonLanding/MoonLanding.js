@@ -11,9 +11,8 @@ import lucas from "../../images/SpaceDrawings/IndividualImages/lucas.png";
 import  styled  from "styled-components";
 import {Flowers} from "./Flowers"
 import {Invis} from "./Invis"
-import {Moon} from "./Moon"
-import {Background} from "./Background"
-import {Stars} from "./Stars"
+import {StaticImg} from "./StaticImg"
+import {FloatingImg, floatingImg} from "./FloatingImg"
 
 const MoonLandingWrapper = styled.div`
   position: relative;
@@ -21,23 +20,27 @@ const MoonLandingWrapper = styled.div`
 `;
 
 
-
+const lucasDelay = 1.2;
+const lucasFloatDown = 6
+const lucasRate =  1.5;
 
 
 const MoonLanding = () => {
   return (
     <MoonLandingWrapper>
       <Invis src={background}/>
-      <Background src={background}></Background>
-      <Stars className="stars" src={stars}></Stars>
+      <StaticImg src={background} zIndex={0}/>
+      <StaticImg src={stars} zIndex={1}/>
+      <StaticImg src={moon} zIndex={2}/>
+
       <Flowers src={flowers1} delay={1}/>
       <Flowers src={flowers2} delay={2}/>
       <Flowers src={flowers3} delay={3}/>
       <Flowers src={flowers4} delay={4}/>
       <Flowers src={flowers5} delay={5}/>
-      <Moon src={moon}></Moon>
-      {/* <img className="lucas" src={lucas}></img> */}
-      {/* <img className="laptop" src={laptop}></img> */}
+      
+      <FloatingImg src={lucas} delayFirst={lucasDelay} durationFirst={lucasFloatDown} durationSecond={lucasRate}/>
+      <FloatingImg src={laptop} delayFirst={lucasDelay - 0.1} durationFirst={lucasFloatDown} durationSecond={lucasRate}/>
     </MoonLandingWrapper>
   );
 };
