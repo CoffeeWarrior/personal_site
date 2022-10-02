@@ -17,6 +17,7 @@ import UpdateSite from "./pages/UpdateSite";
 import React from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import post from "./services/post"
+import {GlobalStyles} from "./styling"
 
 class App extends React.Component {
   state = {
@@ -44,7 +45,8 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">  
-            <Nav/>
+        <GlobalStyles/>
+            {/* <Nav/> */}
             <Routes>
               <Route path={"/"} element={<Home/>}></Route>
               {/* <Route path={links.myFeed} element={<MyFeed/>}></Route> */}

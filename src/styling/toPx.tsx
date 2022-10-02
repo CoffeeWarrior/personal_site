@@ -1,0 +1,1 @@
+export const toPx = (val: number): string => val + "px"

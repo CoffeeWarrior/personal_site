@@ -27,6 +27,8 @@ const float = keyframes`
         opacity: 1;
     }
 `
+
+
 export const Floating = (delayFirst:number, durationFirst:number, durationSecond:number) => {
     const delaySecond = durationFirst + delayFirst;
     return css`
