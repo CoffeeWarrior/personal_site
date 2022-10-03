@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
 import PageContainer from "../components/PageContainer";
-import {Timeline} from "../components/Timeline/Timeline"
-
-
+import { Timeline } from "../components/Timeline/Timeline";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -19,7 +17,7 @@ const Home = () => {
 
   return (
     <PageContainer>
-      {/* {<MoonLanding></MoonLanding>} */}
+      {/* <MoonLanding></MoonLanding> */}
       <Timeline></Timeline>
     </PageContainer>
   );

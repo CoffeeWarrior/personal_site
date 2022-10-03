@@ -12,18 +12,13 @@ const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-image: radial-gradient(
-      circle at top left,
-      #006494,
-      80%,
-      #1427b8
-    );
+    background: black;
   `;
 
   const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 40%;
   `;
 
   return (
