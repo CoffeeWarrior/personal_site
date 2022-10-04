@@ -3,7 +3,7 @@ import { colors, toPx } from "../../styling";
 import React from "react";
 import { Post, PostProps } from "./Post";
 
-type TimelineProps = {};
+type TimelineProps = PostProps[] | {}; //remove {}
 
 const tempPost: any = {
   year: 2022,

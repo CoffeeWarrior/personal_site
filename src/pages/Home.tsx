@@ -1,5 +1,5 @@
 import React from "react";
-import MoonLanding from "../components/MoonLanding/MoonLanding";
+import { MoonLanding } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
