@@ -6,7 +6,7 @@ import read from "../services/read";
 import PageContainer from "../components/PageContainer";
 import { Timeline } from "../components/Timeline/Timeline";
 
-const Home = () => {
+export const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -22,5 +22,3 @@ const Home = () => {
     </PageContainer>
   );
 };
-
-export default Home;

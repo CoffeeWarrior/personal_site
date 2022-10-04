@@ -3,7 +3,7 @@ import React from "react";
 
 import background from "../images/Overlay/Overlay.png";
 
-export const Overlay = () => {
+export const Overlay: React.FC = () => {
   const Overlay = styled.div`
     mask-image: url(${background});
     mask-position: center;

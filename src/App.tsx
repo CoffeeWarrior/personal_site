@@ -2,20 +2,15 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import links from "./routing/links/links";
 
 import { Nav } from "./routing/Nav/Nav";
-import MyFeed from "./pages/MyFeed";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import Resume from "./pages/Resume";
-import Login from "./pages/Login";
+import { Contact, Home, Login, MyFeed, Projects, Resume } from "./pages";
 import PageContainer from "./components/PageContainer";
-import UpdateSite from "./pages/UpdateSite";
+
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import post from "./services/post";
 import { GlobalStyles } from "./styling";
 
-import { Overlay } from "./components/Overlay";
+import { Overlay } from "./components";
 class App extends React.Component {
   state = {
     currentUser: undefined,
@@ -53,10 +48,10 @@ class App extends React.Component {
             {/* <Route path={links.projects} element={<Projects/>}></Route> */}
             <Route path={links.resume} element={<Resume />}></Route>
             <Route path={links.login} element={<Login />}></Route>
-            <Route
+            {/* <Route
               path={links.updateSite}
               element={this.state.user ? <UpdateSite /> : <Home />}
-            ></Route>
+            ></Route> */}
           </Routes>
         </div>
       </Router>
