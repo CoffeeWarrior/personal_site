@@ -3,14 +3,13 @@ import links from "./routing/links/links";
 
 import { Nav } from "./routing/Nav/Nav";
 import { Contact, Home, Login, MyFeed, Projects, Resume } from "./pages";
-import PageContainer from "./components/PageContainer";
+import { PageContainer, Overlay } from "./components";
 
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import post from "./services/post";
 import { GlobalStyles } from "./styling";
 
-import { Overlay } from "./components";
 class App extends React.Component {
   state = {
     currentUser: undefined,

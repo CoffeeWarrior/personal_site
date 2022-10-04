@@ -7,7 +7,7 @@ import flowers4 from "../images/SpaceDrawings/TextBackground/flowers-g4.png";
 import flowers5 from "../images/SpaceDrawings/TextBackground/flowers-g5.png";
 import React from "react";
 
-const TextBackground = () => {
+export const TextBackground = () => {
   return (
     <div className="TextBackground">
       <img className="background" src={background}></img>
@@ -20,5 +20,3 @@ const TextBackground = () => {
     </div>
   );
 };
-
-export default TextBackground;

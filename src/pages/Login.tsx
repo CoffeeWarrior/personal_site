@@ -5,7 +5,7 @@ import read from "../services/read";
 import login from "../services/login";
 import { useNavigate } from "react-router-dom";
 import links from "../routing/links/links";
-import PageContainer from "../components/PageContainer";
+import { PageContainer } from "../components";
 import firebaseResources from "../services/firebaseResources";
 
 const loginHelper = async (email: string, password: string, navigate: any) => {

@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import PageContainer from "../components/PageContainer";
-import TextBackground from "../components/TextBackground";
+import { PageContainer, TextBackground } from "../components";
 
 import EmailIcon from "../images/icons/emailIcon.png";
 import GithubIcon from "../images/icons/githubIcon.png";

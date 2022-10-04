@@ -3,11 +3,10 @@ import { MoonLanding } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import PageContainer from "../components/PageContainer";
-import { Timeline } from "../components/Timeline/Timeline";
+import { PageContainer, Timeline, PostProps } from "../components";
 
 export const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostProps[]>([]);
 
   useEffect(() => {
     read(firebaseResources.home).then((val) => {
@@ -18,7 +17,7 @@ export const Home = () => {
   return (
     <PageContainer>
       {/* <MoonLanding></MoonLanding> */}
-      <Timeline></Timeline>
+      <Timeline posts={posts} />
     </PageContainer>
   );
 };
