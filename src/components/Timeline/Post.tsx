@@ -5,13 +5,18 @@ import { toPx } from "../../styling";
 
 export type PostProps = {
   content: string;
-  year: number;
-  technology?: string;
-  timelineWidth: number;
-  callback?: Function;
+  year: number | string;
+  technology: string;
 };
 
-export const Post = React.forwardRef<HTMLDivElement, PostProps>(
+export type PostElementProps = {
+  callback?: Function;
+  timelineWidth: number;
+} & PostProps;
+
+type TimelineWidth = {};
+
+export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, year, technology, timelineWidth }, ref) => {
     const timelineTickDiameter = 12;
 

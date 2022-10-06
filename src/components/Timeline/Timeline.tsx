@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { colors, toPx } from "../../styling";
 import React from "react";
-import { Post, PostProps } from "./Post";
+import { Post, PostElementProps, PostProps } from "./Post";
 
 export type TimelineProps = { posts: PostProps[] };
 
@@ -14,18 +14,18 @@ const tempPost: any = {
 export const Timeline: React.FC<TimelineProps> = ({ posts }) => {
   const timelineWidth = 4; //width in px
   const Timeline = styled.div`
-    padding-top: 10%;
     border-left: ${toPx(timelineWidth)} solid ${colors.white};
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-top: 100px;
   `;
 
   return (
     <Timeline>
-      {posts.map((post) => (
-        <Post {...post}></Post>
+      {posts.map((post, i) => (
+        <Post timelineWidth={timelineWidth} key={i} {...post}></Post>
       ))}
     </Timeline>
   );

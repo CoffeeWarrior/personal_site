@@ -9,8 +9,10 @@ export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
   useEffect(() => {
-    read(firebaseResources.home).then((val) => {
-      setPosts(val.posts);
+    read(firebaseResources.home).then((val: PostProps[]) => {
+      const sortPosts = (a: PostProps, b: PostProps) =>
+        a.year > b.year ? -1 : 1;
+      setPosts(val.sort(sortPosts));
     });
   }, []);
 

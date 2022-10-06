@@ -1,72 +1,58 @@
-// import React from "react";
-// import read from "../services/read";
-// import post from "../services/post";
-// import firebaseResources from "../services/firebaseResources";
-// import { useState, useEffect } from "react";
-// import logout from "../services/logout";
+import React, { SyntheticEvent } from "react";
+import read from "../services/read";
+import post from "../services/post";
+import firebaseResources from "../services/firebaseResources";
+import { useState, useEffect } from "react";
+import logout from "../services/logout";
+import { PageContainer, PostProps } from "../components";
+import { TextField, Select, MenuItem } from "@mui/material";
+import { colors } from "../styling";
 
-// export const UpdateSite = () => {
-//   const LinkOptions = Object.keys(firebaseResources).map((key) => {
-//     return (
-//       <option value={firebaseResources[key]}>{firebaseResources[key]}</option>
-//     );
-//   });
-//   const [selectedLink, setSelectedLink] = useState(firebaseResources.home);
-//   const [posts, setPosts] = useState([]);
-//   const [selectedPost, setSelectedPost] = useState(-1);
-//   const [updatedPost, setUpdatedPost] = useState("");
+type postKeys = keyof PostProps;
 
-//   useEffect(() => {
-//     read(selectedLink).then((val) => {
-//       setPosts(val.posts);
-//       setSelectedPost(val.posts.length);
-//     });
-//   }, [selectedLink]);
+export const UpdateSite = () => {
+  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [selectedPost, setSelectedPost] = useState<number>(0);
 
-//   useEffect(() => {
-//     if (selectedPost < posts.length) {
-//       setUpdatedPost(posts[selectedPost]);
-//     } else {
-//       setUpdatedPost("");
-//     }
-//   }, [selectedPost, selectedLink]);
+  // useEffect(() => {
+  //   if (selectedPost < posts.length) {
+  //     setUpdatedPost(posts[selectedPost]);
+  //   } else {
+  //     setUpdatedPost(defaultPost);
+  //   }
+  // }, [selectedPost]);
 
-//   const addPost = async () => {
-//     let newPosts = [...posts];
-//     newPosts[selectedPost] = updatedPost;
-//     console.log(newPosts);
-//     await post(selectedLink, newPosts);
-//     setSelectedLink(firebaseResources.home);
-//     window.location.reload();
-//   };
+  useEffect(() => {
+    read(firebaseResources.home).then((posts: PostProps[]) => {
+      setPosts(posts);
+    });
+  }, []);
 
-//   return (
-//     <div className={"UpdateSite"}>
-//       <h1>Update Site</h1>
-//       <select
-//         className={"select"}
-//         onChange={(event) => {
-//           setSelectedLink(event.target.value);
-//         }}
-//         value={selectedLink}
-//       >
-//         {LinkOptions}
-//       </select>
-//       <select
-//         className={"select"}
-//         onChange={(event) => setSelectedPost(event.target.value)}
-//       >
-//         <option value={posts.length}>Write a new post</option>
-//         {posts.map((val, index) => {
-//           return <option value={index}>{index}</option>;
-//         })}
-//       </select>
-//       <textarea
-//         value={updatedPost}
-//         onChange={(e) => setUpdatedPost(e.target.value)}
-//       ></textarea>
-//       <button onClick={() => addPost()}>add post</button>
-//       <button onClick={() => logout()}>log out</button>
-//     </div>
-//   );
-// };
+  // const addPost = async () => {
+  //   await post(firebaseResources.home, newPosts);
+  //   window.location.reload();
+  // };
+
+  const postUpdate = (postKey: postKeys, updatedContent: string) => {
+    const newPosts: PostProps[] = [...posts];
+    newPosts[selectedPost][postKey] = updatedContent;
+    setPosts(newPosts);
+    console.log("set new posts");
+  };
+
+  return (
+    <PageContainer>
+      <h1>Update Site</h1>
+      <TextField
+        sx={{ background: "rgba(155, 155, 155, .4)" }}
+        id="outlined-multiline-flexible"
+        label="Multiline"
+        multiline
+        maxRows={4}
+        value={posts[selectedPost]?.["content"]}
+        onChange={(e) => postUpdate("content", e.currentTarget.value)}
+      />
+      <button onClick={() => logout()}>log out</button>
+    </PageContainer>
+  );
+};
