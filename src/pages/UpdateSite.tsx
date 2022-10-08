@@ -4,14 +4,26 @@ import post from "../services/post";
 import firebaseResources from "../services/firebaseResources";
 import { useState, useEffect } from "react";
 import logout from "../services/logout";
-import { PageContainer, PostProps } from "../components";
-import { TextField, Select, MenuItem } from "@mui/material";
+import { PageContainer, PostProps, PostUpdate } from "../components";
+import styled from "styled-components";
+import { InputLabel, MenuItem, Select } from "@mui/material";
 import { colors } from "../styling";
+import { PostUpdateOptions } from "../components/postUpdateOptions";
+import { sortPostsByYear } from "../utils";
 
 type postKeys = keyof PostProps;
 
+const UpdateSiteContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: ${colors.blue};
+`;
+
 export const UpdateSite = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [posts, setPosts] = useState<PostProps[]>([
+    { content: "", header: "", technology: "" },
+  ]);
   const [selectedPost, setSelectedPost] = useState<number>(0);
 
   // useEffect(() => {
@@ -24,7 +36,7 @@ export const UpdateSite = () => {
 
   useEffect(() => {
     read(firebaseResources.home).then((posts: PostProps[]) => {
-      setPosts(posts);
+      setPosts(posts.sort(sortPostsByYear));
     });
   }, []);
 
@@ -33,26 +45,62 @@ export const UpdateSite = () => {
   //   window.location.reload();
   // };
 
-  const postUpdate = (postKey: postKeys, updatedContent: string) => {
+  const postUpdate = (
+    postKey: postKeys,
+    event: SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const newPosts: PostProps[] = [...posts];
-    newPosts[selectedPost][postKey] = updatedContent;
+    newPosts[selectedPost][postKey] = event.currentTarget.value;
     setPosts(newPosts);
-    console.log("set new posts");
+    console.log(newPosts);
   };
+
+  const postKeysUpdate = (
+    Object.keys(posts[selectedPost]) as Array<postKeys>
+  ).map((postKey: postKeys, index) => {
+    return (
+      <PostUpdate
+        key={postKey + index}
+        postKey={postKey}
+        content={posts[selectedPost][postKey]}
+        onChange={postUpdate}
+      />
+    );
+  });
+
+  const selectPostOptions = PostUpdateOptions(posts);
+
+  const handlePostChange = (updatedSelectedPost: string | number) => {
+    if (updatedSelectedPost == posts.length) {
+      setPosts((prevState) => [
+        ...prevState,
+        { content: "", header: "", technology: "" },
+      ]);
+    }
+    setSelectedPost(parseInt("" + updatedSelectedPost));
+  };
+
+  const postOptions = PostUpdateOptions(posts);
 
   return (
     <PageContainer>
-      <h1>Update Site</h1>
-      <TextField
-        sx={{ background: "rgba(155, 155, 155, .4)" }}
-        id="outlined-multiline-flexible"
-        label="Multiline"
-        multiline
-        maxRows={4}
-        value={posts[selectedPost]?.["content"]}
-        onChange={(e) => postUpdate("content", e.currentTarget.value)}
-      />
-      <button onClick={() => logout()}>log out</button>
+      <UpdateSiteContainer>
+        <h1>Update Site</h1>
+        <InputLabel id="demo-simple-select-label">Selected Post</InputLabel>
+        <Select
+          id="demo-simple-select"
+          value={selectedPost}
+          onChange={(e) => handlePostChange(e.target.value)}
+          sx={{ color: "black" }}
+        >
+          {postOptions}
+          <MenuItem value={posts.length}>Write a new post</MenuItem>
+        </Select>
+        {postKeysUpdate}
+        <button style={{ color: "black" }} onClick={() => logout()}>
+          log out
+        </button>
+      </UpdateSiteContainer>
     </PageContainer>
   );
 };

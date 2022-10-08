@@ -6,3 +6,5 @@ export { MoonLanding } from "./MoonLanding/MoonLanding";
 export { Overlay } from "./Overlay";
 export { PageContainer } from "./PageContainer";
 export { TextBackground } from "./TextBackground";
+
+export { PostUpdate } from "./postUpdate";

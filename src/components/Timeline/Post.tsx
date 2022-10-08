@@ -5,7 +5,7 @@ import { toPx } from "../../styling";
 
 export type PostProps = {
   content: string;
-  year: number | string;
+  header: string;
   technology: string;
 };
 
@@ -17,22 +17,22 @@ export type PostElementProps = {
 type TimelineWidth = {};
 
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
-  ({ content, year, technology, timelineWidth }, ref) => {
+  ({ content, header, technology, timelineWidth }, ref) => {
     const timelineTickDiameter = 12;
 
-    const YearTextSize = 30;
+    const HeaderTextSize = 30;
     const PostWrapperMargin = 40;
     const borderWidth = 2;
 
-    const tickTop = 0.5 * YearTextSize - 0.5 * timelineTickDiameter;
+    const tickTop = 0.5 * HeaderTextSize - 0.5 * timelineTickDiameter;
 
     const PostWrapper = styled.div`
       position: relative;
       margin-left: ${toPx(PostWrapperMargin)};
     `;
 
-    const Year = styled.h1`
-      font-size: ${toPx(YearTextSize)};
+    const Header = styled.h1`
+      font-size: ${toPx(HeaderTextSize)};
       color: ${colors.white};
     `;
 
@@ -59,7 +59,7 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
     return (
       <PostWrapper ref={ref}>
         <TimelineTick />
-        <Year>{year}</Year>
+        <Header>{header}</Header>
         <Content>{content}</Content>
       </PostWrapper>
     );
