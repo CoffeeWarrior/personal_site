@@ -19,12 +19,12 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
   const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 42%;
+    width: 48%;
   `;
 
   return (
     <Background>
-      <div style={{ height: "70vh", width: "100%" }} />
+      <div style={{ height: "10vh", width: "100%" }} />
       <PageContainer>{children}</PageContainer>
       <div style={{ height: "70vh", width: "100%" }} />
     </Background>

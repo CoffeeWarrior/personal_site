@@ -18,9 +18,9 @@ type TimelineWidth = {};
 
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, header, technology, timelineWidth }, ref) => {
-    const timelineTickDiameter = 12;
+    const timelineTickDiameter = 16;
 
-    const HeaderTextSize = 30;
+    const HeaderTextSize = 35;
     const PostWrapperMargin = 40;
     const borderWidth = 2;
 
@@ -36,7 +36,10 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
       color: ${colors.white};
     `;
 
-    const Content = styled.p``;
+    const Content = styled.p`
+      margin-top: 15px;
+      font-size: 17px;
+    `;
 
     const TimelineTick = styled.div`
       position: absolute;
@@ -61,6 +64,7 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
         <TimelineTick />
         <Header>{header}</Header>
         <Content>{content}</Content>
+        <Content>Technologies: {technology}</Content>
       </PostWrapper>
     );
   }

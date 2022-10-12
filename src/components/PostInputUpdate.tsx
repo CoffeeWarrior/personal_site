@@ -6,13 +6,13 @@ import { PostProps } from "./Timeline/Post";
 
 type postKeys = keyof PostProps;
 
-type PostUpdateProps = {
+type PostInputUpdateProps = {
   postKey: postKeys;
   content: string;
   onChange: Function;
 };
 
-export const PostUpdate: React.FC<PostUpdateProps> = ({
+export const PostInputUpdate: React.FC<PostInputUpdateProps> = ({
   postKey,
   content,
   onChange,

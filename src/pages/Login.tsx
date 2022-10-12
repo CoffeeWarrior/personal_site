@@ -54,7 +54,7 @@ export const Login = () => {
             <h2>Password</h2>
             <input
               type="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onBlur={(e) => setPassword(e.target.value)}
             ></input>
             <input
               className="button"

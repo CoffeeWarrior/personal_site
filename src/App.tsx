@@ -57,7 +57,7 @@ class App extends React.Component {
             <Route path={links.login} element={<Login />}></Route>
             <Route
               path={links.updateSite}
-              element={this.state.user ? <UpdateSite /> : <UpdateSite />}
+              element={this.state.user ? <UpdateSite /> : <Home />}
             ></Route>
           </Routes>
         </div>

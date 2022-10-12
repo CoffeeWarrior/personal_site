@@ -12,14 +12,13 @@ const tempPost: any = {
 };
 
 export const Timeline: React.FC<TimelineProps> = ({ posts }) => {
-  const timelineWidth = 4; //width in px
+  const timelineWidth = 6; //width in px
   const Timeline = styled.div`
     border-left: ${toPx(timelineWidth)} solid ${colors.white};
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding-top: 100px;
+    gap: 50px;
   `;
 
   return (

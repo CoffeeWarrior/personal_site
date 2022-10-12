@@ -17,7 +17,9 @@ export const Home = () => {
 
   return (
     <PageContainer>
-      {/* <MoonLanding></MoonLanding> */}
+      <h1>Welcome To My Homepage</h1>
+      <h2>I'm Lucas</h2>
+      <MoonLanding></MoonLanding>
       <Timeline posts={posts} />
     </PageContainer>
   );

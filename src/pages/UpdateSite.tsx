@@ -4,11 +4,11 @@ import post from "../services/post";
 import firebaseResources from "../services/firebaseResources";
 import { useState, useEffect } from "react";
 import logout from "../services/logout";
-import { PageContainer, PostProps, PostUpdate } from "../components";
+import { PageContainer, PostProps, PostInputUpdate } from "../components";
 import styled from "styled-components";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import { colors } from "../styling";
-import { PostUpdateOptions } from "../components/postUpdateOptions";
+import { postSelectOptions } from "../components/postSelectOptions";
 import { sortPostsByYear } from "../utils";
 
 type postKeys = keyof PostProps;
@@ -26,26 +26,18 @@ export const UpdateSite = () => {
   ]);
   const [selectedPost, setSelectedPost] = useState<number>(0);
 
-  // useEffect(() => {
-  //   if (selectedPost < posts.length) {
-  //     setUpdatedPost(posts[selectedPost]);
-  //   } else {
-  //     setUpdatedPost(defaultPost);
-  //   }
-  // }, [selectedPost]);
-
   useEffect(() => {
     read(firebaseResources.home).then((posts: PostProps[]) => {
       setPosts(posts.sort(sortPostsByYear));
     });
   }, []);
 
-  // const addPost = async () => {
-  //   await post(firebaseResources.home, newPosts);
-  //   window.location.reload();
-  // };
+  const handleUpdateSite = async () => {
+    await post(firebaseResources.home, posts);
+    window.location.reload();
+  };
 
-  const postUpdate = (
+  const handlePostUpdate = (
     postKey: postKeys,
     event: SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -55,32 +47,28 @@ export const UpdateSite = () => {
     console.log(newPosts);
   };
 
-  const postKeysUpdate = (
+  const postUpdateInputsByKeys = (
     Object.keys(posts[selectedPost]) as Array<postKeys>
   ).map((postKey: postKeys, index) => {
     return (
-      <PostUpdate
+      <PostInputUpdate
         key={postKey + index}
         postKey={postKey}
         content={posts[selectedPost][postKey]}
-        onChange={postUpdate}
+        onChange={handlePostUpdate}
       />
     );
   });
 
-  const selectPostOptions = PostUpdateOptions(posts);
-
-  const handlePostChange = (updatedSelectedPost: string | number) => {
+  const handleSelectedPostChange = (updatedSelectedPost: number) => {
     if (updatedSelectedPost == posts.length) {
       setPosts((prevState) => [
         ...prevState,
         { content: "", header: "", technology: "" },
       ]);
     }
-    setSelectedPost(parseInt("" + updatedSelectedPost));
+    setSelectedPost(updatedSelectedPost);
   };
-
-  const postOptions = PostUpdateOptions(posts);
 
   return (
     <PageContainer>
@@ -90,13 +78,19 @@ export const UpdateSite = () => {
         <Select
           id="demo-simple-select"
           value={selectedPost}
-          onChange={(e) => handlePostChange(e.target.value)}
+          onChange={(e) =>
+            handleSelectedPostChange(parseInt("" + e.target.value))
+          }
           sx={{ color: "black" }}
         >
-          {postOptions}
+          {postSelectOptions(posts)}
           <MenuItem value={posts.length}>Write a new post</MenuItem>
         </Select>
-        {postKeysUpdate}
+        {postUpdateInputsByKeys}
+
+        <button style={{ color: "black" }} onClick={() => handleUpdateSite()}>
+          update
+        </button>
         <button style={{ color: "black" }} onClick={() => logout()}>
           log out
         </button>
