@@ -1,0 +1,1 @@
+export { sortPostsByYear } from "./sortPostsByYear";
