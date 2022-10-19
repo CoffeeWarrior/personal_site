@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, get, child } from "firebase/database";
+import { getDatabase, ref, get, child } from "firebase/database";
 
 const read = async (link: string) => {
   //this function is responsible for reading db

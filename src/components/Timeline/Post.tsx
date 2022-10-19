@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { colors } from "../../styling";
-import React, { useRef } from "react";
+import React from "react";
 import { toPx } from "../../styling";
 
 export type PostProps = {
@@ -13,8 +13,6 @@ export type PostElementProps = {
   callback?: Function;
   timelineWidth: number;
 } & PostProps;
-
-type TimelineWidth = {};
 
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, header, technology, timelineWidth }, ref) => {

@@ -1,7 +1,5 @@
 import { TextField } from "@mui/material";
-import React, { ChangeEventHandler } from "react";
-import styled from "styled-components";
-import { colors } from "../styling";
+import React from "react";
 import { PostProps } from "./Timeline/Post";
 
 type postKeys = keyof PostProps;

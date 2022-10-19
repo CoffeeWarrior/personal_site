@@ -1,21 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import links from "./routing/links/links";
 
-import { Nav } from "./routing/Nav/Nav";
-import {
-  Contact,
-  Home,
-  Login,
-  MyFeed,
-  Projects,
-  Resume,
-  UpdateSite,
-} from "./pages";
-import { PageContainer, Overlay } from "./components";
+import { Contact, Home, Login, Resume, UpdateSite } from "./pages";
+import { Overlay } from "./components";
 
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import post from "./services/post";
 import { GlobalStyles } from "./styling";
 
 class App extends React.Component {

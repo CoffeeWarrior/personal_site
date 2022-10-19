@@ -61,7 +61,7 @@ export const UpdateSite = () => {
   });
 
   const handleSelectedPostChange = (updatedSelectedPost: number) => {
-    if (updatedSelectedPost == posts.length) {
+    if (updatedSelectedPost === posts.length) {
       setPosts((prevState) => [
         ...prevState,
         { content: "", header: "", technology: "" },

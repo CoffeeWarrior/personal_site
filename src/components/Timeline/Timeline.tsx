@@ -1,15 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { colors, toPx } from "../../styling";
 import React from "react";
-import { Post, PostElementProps, PostProps } from "./Post";
+import { Post, PostProps } from "./Post";
 
 export type TimelineProps = { posts: PostProps[] };
-
-const tempPost: any = {
-  year: 2022,
-  content:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-};
 
 export const Timeline: React.FC<TimelineProps> = ({ posts }) => {
   const timelineWidth = 6; //width in px

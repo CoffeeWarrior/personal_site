@@ -10,13 +10,13 @@ import React from "react";
 export const TextBackground = () => {
   return (
     <div className="TextBackground">
-      <img className="background" src={background}></img>
-      <img className="stars" src={stars}></img>
-      <img className="flowers-1" src={flowers1}></img>
-      <img className="flowers-2" src={flowers2}></img>
-      <img className="flowers-3" src={flowers3}></img>
-      <img className="flowers-4" src={flowers4}></img>
-      <img className="flowers-5" src={flowers5}></img>
+      <img alt="" className="background" src={background}></img>
+      <img alt="" className="stars" src={stars}></img>
+      <img alt="" className="flowers-1" src={flowers1}></img>
+      <img alt="" className="flowers-2" src={flowers2}></img>
+      <img alt="" className="flowers-3" src={flowers3}></img>
+      <img alt="" className="flowers-4" src={flowers4}></img>
+      <img alt="" className="flowers-5" src={flowers5}></img>
     </div>
   );
 };
