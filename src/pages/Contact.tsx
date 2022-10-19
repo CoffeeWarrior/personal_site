@@ -14,7 +14,7 @@ export const Contact = () => {
   // linkedin = posts[1]
   // email = posts[2]
 
-  const images = [GithubIcon, LinkedinIcon, EmailIcon];
+  //const images = [GithubIcon, LinkedinIcon, EmailIcon];
 
   const [posts, setPosts] = useState(["", "", ""]);
   const [copied, setCopied] = useState(false);
@@ -46,20 +46,20 @@ export const Contact = () => {
 
             <a href={posts[0]} target="_blank" rel="noreferrer noopener">
               <div className="item">
-                <img className="icon" src={GithubIcon}></img>
+                <img alt="" className="icon" src={GithubIcon}></img>
                 <h3>{posts[0].slice(8)}</h3>
               </div>
             </a>
 
             <a href={posts[1]} target="_blank" rel="noreferrer noopener">
               <div className="item">
-                <img className="icon" src={LinkedinIcon}></img>
+                <img alt="" className="icon" src={LinkedinIcon}></img>
                 <h3>{posts[1].slice(8)}</h3>
               </div>
             </a>
 
             <div className="item" onClick={() => copyTextToClipboard(posts[2])}>
-              <img className="icon" src={EmailIcon}></img>
+              <img alt="" className="icon" src={EmailIcon}></img>
               <h3>{posts[2]}</h3>
             </div>
 
@@ -70,7 +70,7 @@ export const Contact = () => {
             </div>
           </div>
           <div className="image">
-            <img className="lucas-cropped" src={lucas}></img>
+            <img alt="" className="lucas-cropped" src={lucas}></img>
           </div>
         </div>
       </div>
