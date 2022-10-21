@@ -1,16 +1,18 @@
 import styled from "styled-components";
-import { colors, toPx } from "../../styling";
+import { colors, Sizes, toPx } from "../../styling";
 import React from "react";
 import { Post, PostProps } from "./Post";
 
 export type TimelineProps = { posts: PostProps[] };
 
 const Scrollable = styled.div`
-  overflow-y: scroll;
-  height: 65vh;
-  flex: 1;
-  padding-left: 10px;
-  overflow: scroll;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+    overflow-y: scroll;
+    height: 70vh;
+    flex: 1;
+    padding-left: 10px;
+    overflow: scroll;
+  }
 `;
 
 export const Timeline: React.FC<TimelineProps> = ({ posts }) => {

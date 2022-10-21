@@ -7,13 +7,7 @@ import { PageContainer, Timeline, PostProps } from "../components";
 import { sortPostsByYear } from "../utils";
 import styled from "styled-components";
 import { Nav } from "../routing/Nav/Nav";
-
-const Flexbox = styled.div`
-  display: flex;
-  direction: row;
-  gap: 20px;
-  margin-top: 2vh;
-`;
+import { Flexbox } from "../styling";
 
 export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
