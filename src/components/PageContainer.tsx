@@ -13,7 +13,6 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: ${colors.space};
   `;
 
   const PageContainer = styled.div`
@@ -24,7 +23,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
 
   return (
     <Background>
-      <div style={{ height: "10vh", width: "100%" }} />
+      <div style={{ height: "5vh", width: "100%" }} />
       <PageContainer>{children}</PageContainer>
       <div style={{ height: "70vh", width: "100%" }} />
     </Background>

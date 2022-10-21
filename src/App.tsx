@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import links from "./routing/links/links";
 
 import { Contact, Home, Login, Resume, UpdateSite } from "./pages";
-import { Overlay } from "./components";
+import { Background } from "./components";
 
 import React from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -35,7 +35,8 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <GlobalStyles />
-          <Overlay />
+          <Background></Background>
+          {/* <Overlay /> */}
           {/* <Nav/> */}
           <Routes>
             <Route path={"/"} element={<Home />}></Route>
