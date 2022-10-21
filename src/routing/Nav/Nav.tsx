@@ -10,9 +10,9 @@ export const Nav = () => {
           <li>Home</li>
         </Link>
         {/* <Link to={links.projects}><li>Projects</li></Link> */}
-        <Link to={links.resume}>
+        {/* <Link to={links.resume}>
           <li>Resume</li>
-        </Link>
+        </Link> */}
         <Link to={links.contact}>
           <li>Contact</li>
         </Link>

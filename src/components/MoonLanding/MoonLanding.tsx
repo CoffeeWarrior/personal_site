@@ -18,7 +18,7 @@ import React from "react";
 
 const MoonLandingWrapper = styled.div`
   position: relative;
-  width: 100%;
+  flex: 1.1;
 `;
 
 const lucasDelay = 1.2;
