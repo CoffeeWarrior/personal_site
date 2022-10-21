@@ -7,6 +7,7 @@ export { Overlay } from "./Overlay";
 export { PageContainer } from "./PageContainer";
 export { TextBackground } from "./TextBackground";
 export { Background } from "./Background";
+export { Header } from "./Header/Header";
 
 export { PostInputUpdate } from "./PostInputUpdate";
 export { postSelectOptions } from "./postSelectOptions";

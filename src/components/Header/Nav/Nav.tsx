@@ -1,8 +1,8 @@
 import React from "react";
-import links from "../links/links";
+import links from "../../../routing/links/links";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "../../styling";
+import { colors } from "../../../styling";
 
 const UL = styled.ul`
   display: flex;

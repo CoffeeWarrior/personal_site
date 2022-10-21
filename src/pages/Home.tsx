@@ -3,10 +3,9 @@ import { MoonLanding } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import { PageContainer, Timeline, PostProps } from "../components";
+import { PageContainer, Timeline, PostProps, Header } from "../components";
 import { sortPostsByYear } from "../utils";
 import styled from "styled-components";
-import { Nav } from "../routing/Nav/Nav";
 import { Flexbox } from "../styling";
 
 export const Home = () => {
@@ -20,13 +19,7 @@ export const Home = () => {
 
   return (
     <PageContainer>
-      <Flexbox>
-        <div>
-          <h1>Welcome To My Homepage</h1>
-          <h2>I'm Lucas</h2>
-        </div>
-        <Nav></Nav>
-      </Flexbox>
+      <Header header="Welcome To My Homepage" subheader="I'm Lucas" />
       <Flexbox>
         <MoonLanding></MoonLanding>
         <Timeline posts={posts} />
