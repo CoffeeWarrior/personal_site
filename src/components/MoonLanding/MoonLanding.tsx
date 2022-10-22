@@ -14,7 +14,7 @@ const MoonLandingWrapper = styled.div`
   flex: 1.1;
 `;
 
-const lucasDelay = 0.6;
+const lucasDelay = 0.3;
 const lucasFloatDown = 6;
 const lucasRate = 1.5;
 

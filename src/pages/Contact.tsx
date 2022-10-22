@@ -2,12 +2,53 @@ import React from "react";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import { PageContainer, TextBackground } from "../components";
+import {
+  MoonLandingBackground as Background,
+  PageContainer,
+} from "../components";
 
 import EmailIcon from "../images/icons/emailIcon.png";
 import GithubIcon from "../images/icons/githubIcon.png";
 import LinkedinIcon from "../images/icons/linkedinIcon.png";
-import lucas from "../images/SpaceDrawings/IndividualImages/lucas-cropped.png";
+import styled from "styled-components";
+import { colors, Sizes } from "../styling";
+
+const Text = styled.div`
+  z-index: 100;
+`;
+
+const Item = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+  &:hover {
+    color: ${colors.whiterWhite};
+    cursor: pointer;
+  }
+`;
+
+const Icon = styled.img`
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+`;
+
+const Center = styled.div`
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+`;
+
+const ImgWidth = styled.div`
+  @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
+    width: 100vw;
+  }
+
+  @media only screen and (max-width: ${Sizes.maxWidthMobileL}) {
+    width: 120vw;
+  }
+`;
 
 export const Contact = () => {
   // github = posts[0]
@@ -38,41 +79,37 @@ export const Contact = () => {
 
   return (
     <PageContainer>
-      <div className="contactPage">
-        <div className="contactContent">
-          <TextBackground></TextBackground>
-          <div className="text">
-            <h1>My Contact Info:</h1>
+      <Center style={{ opacity: "0.75" }}>
+        <ImgWidth>
+          <Background />
+        </ImgWidth>
+      </Center>
+      <Center>
+        <Text>
+          <h1 style={{ paddingBottom: "20px" }}>My Contact Info:</h1>
 
-            <a href={posts[0]} target="_blank" rel="noreferrer noopener">
-              <div className="item">
-                <img alt="" className="icon" src={GithubIcon}></img>
-                <h3>{posts[0].slice(8)}</h3>
-              </div>
-            </a>
+          <a href={posts[0]} target="_blank" rel="noreferrer noopener">
+            <Item>
+              <Icon alt="" src={GithubIcon}></Icon>
+              <h4 style={{ marginTop: "10px" }}>{posts[0].slice(8)}</h4>
+            </Item>
+          </a>
 
-            <a href={posts[1]} target="_blank" rel="noreferrer noopener">
-              <div className="item">
-                <img alt="" className="icon" src={LinkedinIcon}></img>
-                <h3>{posts[1].slice(8)}</h3>
-              </div>
-            </a>
+          <a href={posts[1]} target="_blank" rel="noreferrer noopener">
+            <Item>
+              <Icon alt="" src={LinkedinIcon}></Icon>
+              <h4 style={{ marginTop: "10px" }}>{posts[1].slice(8)}</h4>
+            </Item>
+          </a>
 
-            <div className="item" onClick={() => copyTextToClipboard(posts[2])}>
-              <img alt="" className="icon" src={EmailIcon}></img>
-              <h3>{posts[2]}</h3>
-            </div>
-
-            <div>
-              {copied ? (
-                <h3 className="copiedPopup">copied to clipboard</h3>
-              ) : null}
-            </div>
-          </div>
-          <div className="image">
-            <img alt="" className="lucas-cropped" src={lucas}></img>
-          </div>
-        </div>
+          <Item onClick={() => copyTextToClipboard(posts[2])}>
+            <Icon alt="" src={EmailIcon}></Icon>
+            <h4 style={{ marginTop: "10px" }}>{posts[2]}</h4>
+          </Item>
+        </Text>
+      </Center>
+      <div>
+        {copied ? <h3 className="copiedPopup">copied to clipboard</h3> : null}
       </div>
     </PageContainer>
   );
