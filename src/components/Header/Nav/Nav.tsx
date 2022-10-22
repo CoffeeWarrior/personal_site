@@ -43,9 +43,9 @@ export const Nav = () => {
         {/* <Link to={links.resume}>
           <LI>Resume</LI>
         </Link> */}
-        <LINK to={links.contact}>
+        {/* <LINK to={links.contact}>
           <LI>Contact</LI>
-        </LINK>
+        </LINK> */}
         {/* <Link to={links.myFeed}><LI>My Feed</LI></Link> */}
         <LINK to={links.login}>
           <LI>Login</LI>

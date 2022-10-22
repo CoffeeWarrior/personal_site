@@ -8,6 +8,10 @@ import { sortPostsByYear } from "../utils";
 import styled from "styled-components";
 import { Flexbox } from "../styling";
 
+const FlexboxMarginTop = styled(Flexbox)`
+  margin-top: 2vh;
+`;
+
 export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
@@ -20,10 +24,10 @@ export const Home = () => {
   return (
     <PageContainer>
       <Header header="Welcome To My Homepage" subheader="I'm Lucas" />
-      <Flexbox>
+      <FlexboxMarginTop>
         <MoonLanding></MoonLanding>
         <Timeline posts={posts} />
-      </Flexbox>
+      </FlexboxMarginTop>
     </PageContainer>
   );
 };
