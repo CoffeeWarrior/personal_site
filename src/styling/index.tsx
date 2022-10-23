@@ -4,6 +4,7 @@ export { colors } from "./colors";
 export { AbsPositionCenter } from "./absPositionCenter";
 export { Floating } from "./floating";
 export { Flexbox } from "./Flexbox";
+export { centerFlexBox } from "./centerFlexbox";
 
 export { toPx } from "./toPx";
 export { GlobalStyles } from "./globalStyles";

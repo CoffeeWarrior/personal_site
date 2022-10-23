@@ -6,7 +6,7 @@ const BackgroundDiv = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: radial-gradient(circle at top left, #006494, 80%, #1427b8); ;
+  background: radial-gradient(circle at top left, #006494, 80%, #1427b8);
 `;
 
 export const Background = () => {

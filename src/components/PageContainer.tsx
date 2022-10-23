@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { colors, Sizes } from "../styling";
+import { Banner } from "../components";
 
 export type PageContainerProps = {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    overflow-x: hidden !important;
   `;
 
   const PageContainer = styled.div`
@@ -26,9 +28,9 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
 
   return (
     <Background>
-      <div style={{ height: "3vh", width: "100%" }} />
+      {/* <Banner></Banner> */}
       <PageContainer>{children}</PageContainer>
-      <div style={{ height: "3vh", width: "100%" }} />
+      <div style={{ height: "7vh", width: "100%" }} />
     </Background>
   );
 };
