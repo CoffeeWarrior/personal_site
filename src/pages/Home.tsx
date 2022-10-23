@@ -1,5 +1,5 @@
 import React from "react";
-import { MoonLanding } from "../components";
+import { Banner, MoonLanding } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
@@ -11,6 +11,18 @@ import { Flexbox } from "../styling";
 const FlexboxMarginTop = styled(Flexbox)`
   margin-top: 2vh;
 `;
+
+const MoonLandingContactWrapper = styled(Flexbox)`
+  flex-direction: column;
+  flex: 1.1;
+`;
+
+const MoonLanding_ContactInfo = (
+  <MoonLandingContactWrapper>
+    <MoonLanding></MoonLanding>
+    <Banner></Banner>
+  </MoonLandingContactWrapper>
+);
 
 export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
@@ -25,7 +37,7 @@ export const Home = () => {
     <PageContainer>
       <Header header="Welcome To My Homepage" subheader="I'm Lucas" />
       <FlexboxMarginTop>
-        <MoonLanding></MoonLanding>
+        {MoonLanding_ContactInfo}
         <Timeline posts={posts} />
       </FlexboxMarginTop>
     </PageContainer>

@@ -17,7 +17,6 @@ const UpdateSiteContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: ${colors.blue};
 `;
 
 export const UpdateSite = () => {

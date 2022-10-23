@@ -14,6 +14,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    overflow-x: hidden !important;
   `;
 
   const PageContainer = styled.div`

@@ -11,7 +11,7 @@ import { StaticImg } from "./StaticImg";
 
 const MoonLandingWrapper = styled.div`
   position: relative;
-  flex: 1.1;
+  flex: 1;
 `;
 
 const lucasDelay = 0.3;
