@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import React from "react";
-import { PostProps } from "./Timeline/Post";
+import { PostProps } from "../Timeline/Post";
 
 type postKeys = keyof PostProps;
 

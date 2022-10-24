@@ -2,26 +2,23 @@ import React from "react";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import { MoonLandingBackground as Background, PageContainer } from ".";
 
 import EmailIcon from "../images/icons/emailIcon.png";
 import GithubIcon from "../images/icons/githubIcon.png";
 import LinkedinIcon from "../images/icons/linkedinIcon.png";
 import styled from "styled-components";
 import { colors, Flexbox, Sizes } from "../styling";
-import { Header } from ".";
 
-const Text = styled(Flexbox)`
-  flex: 1;
-  background: rgba(0, 0, 0, 0.2);
-  justify-content: center;
-  align-items: baseline;
-  gap: 4px;
-  flex-direction: column;
-  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-    gap: 20px;
-  }
-`;
+// const FlexboxContainer = styled(Flexbox)`
+//   flex: 1;
+//   background: rgba(0, 0, 0, 0.2);
+//   justify-content: center;
+//   align-items: baseline;
+//   gap: 4px;
+//   @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+//     gap: 20px;
+//   }
+// `;
 
 const Item = styled.div`
   display: flex;
@@ -33,12 +30,14 @@ const Item = styled.div`
   }
 `;
 
+const IconDiameter = "40px";
+
 const Icon = styled.img`
-  width: 20px;
-  height: 20px;
+  width: ${IconDiameter};
+  height: ${IconDiameter};
 `;
 
-export const Banner = () => {
+export const SocialIcons = () => {
   // github = posts[0]
   // linkedin = posts[1]
   // email = posts[2]
@@ -46,7 +45,7 @@ export const Banner = () => {
   //const images = [GithubIcon, LinkedinIcon, EmailIcon];
 
   const [posts, setPosts] = useState(["", "", ""]);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false); //maybe want to give some indication when copied
   const copiedPopupDuration = 1025;
 
   useEffect(() => {
@@ -66,36 +65,32 @@ export const Banner = () => {
   };
 
   return (
-    <Text>
-      <h2>Contact me:</h2>
-      <a
-        style={{ textDecoration: "none" }}
-        href={posts[0]}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        <Item>
-          <Icon alt="" src={GithubIcon}></Icon>
-          <h4>{posts[0].slice(8)}</h4>
-        </Item>
-      </a>
-
+    <>
+      <Item onClick={() => copyTextToClipboard(posts[2])}>
+        <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
+      </Item>
       <a
         style={{ textDecoration: "none" }}
         href={posts[1]}
         target="_blank"
         rel="noreferrer noopener"
+        title="My LinkedIn"
       >
         <Item>
           <Icon alt="" src={LinkedinIcon}></Icon>
-          <h4>{posts[1].slice(8)}</h4>
         </Item>
       </a>
-
-      <Item onClick={() => copyTextToClipboard(posts[2])}>
-        <Icon alt="" src={EmailIcon}></Icon>
-        <h4>{posts[2]}</h4>
-      </Item>
-    </Text>
+      <a
+        style={{ textDecoration: "none" }}
+        href={posts[0]}
+        target="_blank"
+        rel="noreferrer noopener"
+        title="My Github"
+      >
+        <Item>
+          <Icon alt="" src={GithubIcon}></Icon>
+        </Item>
+      </a>
+    </>
   );
 };

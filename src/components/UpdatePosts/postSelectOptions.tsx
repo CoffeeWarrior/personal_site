@@ -1,6 +1,6 @@
 import { MenuItem } from "@mui/material";
 import React from "react";
-import { PostProps } from "./Timeline/Post";
+import { PostProps } from "../Timeline/Post";
 
 export const postSelectOptions = (posts: PostProps[]): JSX.Element[] => {
   return posts.map((post, index) => (

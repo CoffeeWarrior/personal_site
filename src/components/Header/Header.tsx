@@ -9,7 +9,8 @@ type HeaderProps = {
 };
 
 const FlexboxMarginTop = styled(Flexbox)`
-  margin-top: 2vh;
+  margin-top: 4vh;
+  margin-bottom: 2vh;
 `;
 
 export const Header = ({ header, subheader }: HeaderProps) => (

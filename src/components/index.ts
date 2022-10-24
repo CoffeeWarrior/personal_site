@@ -9,7 +9,8 @@ export { PageContainer } from "./PageContainer";
 export { TextBackground } from "./TextBackground";
 export { Background } from "./Background";
 export { Header } from "./Header/Header";
-export { Banner } from "./Banner";
+export { SocialIcons } from "./SocialIcons";
 
-export { PostInputUpdate } from "./PostInputUpdate";
-export { postSelectOptions } from "./postSelectOptions";
+export { PostInputUpdate } from "./UpdatePosts/PostInputUpdate";
+export { postSelectOptions } from "./UpdatePosts/postSelectOptions";
+export { UpdatePost } from "./UpdatePosts/UpdatePost";

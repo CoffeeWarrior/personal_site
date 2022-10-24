@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner, MoonLanding } from "../components";
+import { SocialIcons, MoonLanding } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
@@ -20,7 +20,7 @@ const MoonLandingContactWrapper = styled(Flexbox)`
 const MoonLanding_ContactInfo = (
   <MoonLandingContactWrapper>
     <MoonLanding></MoonLanding>
-    <Banner></Banner>
+    <SocialIcons></SocialIcons>
   </MoonLandingContactWrapper>
 );
 
@@ -29,15 +29,15 @@ export const Home = () => {
 
   useEffect(() => {
     read(firebaseResources.home).then((val: PostProps[]) => {
-      setPosts(val.sort(sortPostsByYear));
+      setPosts(val);
     });
   }, []);
 
   return (
     <PageContainer>
-      <Header header="Welcome To My Homepage" subheader="I'm Lucas" />
+      <Header header="Lucas' Website" />
       <FlexboxMarginTop>
-        {MoonLanding_ContactInfo}
+        <MoonLanding />
         <Timeline posts={posts} />
       </FlexboxMarginTop>
     </PageContainer>

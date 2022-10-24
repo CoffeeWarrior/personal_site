@@ -6,7 +6,6 @@ import { toPx } from "../../styling";
 export type PostProps = {
   content: string;
   header: string;
-  technology: string;
 };
 
 export type PostElementProps = {
@@ -15,7 +14,7 @@ export type PostElementProps = {
 } & PostProps;
 
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
-  ({ content, header, technology, timelineWidth }, ref) => {
+  ({ content, header, timelineWidth }, ref) => {
     const timelineTickDiameter = 16;
 
     const HeaderTextSize = 35;
@@ -62,7 +61,6 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
         <TimelineTick />
         <Header>{header}</Header>
         <Content>{content}</Content>
-        <Content>Technologies: {technology}</Content>
       </PostWrapper>
     );
   }

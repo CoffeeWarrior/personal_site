@@ -5,4 +5,5 @@ export const AbsPositionCenter = styled.img`
   width: 100%;
   top: 0px;
   left: 0px;
+  pointer-events: none;
 `;

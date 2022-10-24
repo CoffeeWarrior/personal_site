@@ -2,7 +2,7 @@ const links = {
   home: "/Home",
   // contact: "/Contact",
   // myFeed: "/MyFeed",
-  // projects: "/Projects",
+  projects: "/Projects",
   resume: "/Resume",
   login: "/Login",
   updateSite: "/UpdateSite",
