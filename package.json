@@ -10,7 +10,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^18.7.23",
-    "@types/react": "^18.0.21",
+    "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.6",
     "firebase": "^9.6.9",
     "gh-pages": "^4.0.0",
