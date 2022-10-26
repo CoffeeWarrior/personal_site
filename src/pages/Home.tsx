@@ -12,18 +12,6 @@ const FlexboxMarginTop = styled(Flexbox)`
   margin-top: 2vh;
 `;
 
-const MoonLandingContactWrapper = styled(Flexbox)`
-  flex-direction: column;
-  flex: 1.1;
-`;
-
-const MoonLanding_ContactInfo = (
-  <MoonLandingContactWrapper>
-    <MoonLanding></MoonLanding>
-    <SocialIcons></SocialIcons>
-  </MoonLandingContactWrapper>
-);
-
 export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
 

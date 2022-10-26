@@ -23,17 +23,19 @@ const UpdateSiteContainer = styled.div`
 
 export const UpdateSite = () => {
   const [posts, setPosts] = useState<PostProps[]>([
-    { content: "", header: "" },
+    { content: "", header: "Write a new post" },
   ]);
 
   useEffect(() => {
-    read(firebaseResources.home).then((posts: PostProps[]) => {
-      setPosts(posts);
+    read(firebaseResources.home).then((newPosts: PostProps[]) => {
+      const updatedPosts = [...posts, ...newPosts];
+      setPosts(updatedPosts);
     });
   }, []);
 
   const handleUpdateSite = async () => {
-    await post(firebaseResources.home, refs.current);
+    const posts = refs.current.filter((post) => post.content);
+    await post(firebaseResources.home, posts);
     window.location.reload();
   };
 
