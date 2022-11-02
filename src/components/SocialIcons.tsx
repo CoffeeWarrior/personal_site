@@ -9,16 +9,15 @@ import LinkedinIcon from "../images/icons/linkedinIcon.png";
 import styled from "styled-components";
 import { colors, Flexbox, Sizes } from "../styling";
 
-// const FlexboxContainer = styled(Flexbox)`
-//   flex: 1;
-//   background: rgba(0, 0, 0, 0.2);
-//   justify-content: center;
-//   align-items: baseline;
-//   gap: 4px;
-//   @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-//     gap: 20px;
-//   }
-// `;
+const FlexboxContainer = styled(Flexbox)`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 4px;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+    gap: 20px;
+  }
+`;
 
 const Item = styled.div`
   display: flex;
@@ -65,7 +64,7 @@ export const SocialIcons = () => {
   };
 
   return (
-    <>
+    <FlexboxContainer>
       <Item onClick={() => copyTextToClipboard(posts[2])}>
         <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
       </Item>
@@ -91,6 +90,6 @@ export const SocialIcons = () => {
           <Icon alt="" src={GithubIcon}></Icon>
         </Item>
       </a>
-    </>
+    </FlexboxContainer>
   );
 };

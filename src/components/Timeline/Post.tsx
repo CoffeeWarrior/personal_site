@@ -19,7 +19,7 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
 
     const HeaderTextSize = 35;
     const PostWrapperMargin = 40;
-    const borderWidth = 2;
+    const borderWidth = timelineTickDiameter * 0.25;
 
     const tickTop = 0.5 * HeaderTextSize - 0.5 * timelineTickDiameter;
 
@@ -30,7 +30,6 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
 
     const Header = styled.h1`
       font-size: ${toPx(HeaderTextSize)};
-      color: ${colors.white};
     `;
 
     const Content = styled.p`
@@ -52,15 +51,15 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
             borderWidth)
       )};
       border-radius: 990px;
-      border: ${toPx(borderWidth)} solid ${colors.blue};
-      background: ${colors.whiterWhite};
+      border: ${toPx(borderWidth)} solid ${colors.space};
+      background: ${colors.background};
     `;
 
     return (
       <PostWrapper ref={ref}>
         <TimelineTick />
-        <Header>{header}</Header>
-        <Content>{content}</Content>
+        <h1>{header}</h1>
+        <p>{content}</p>
       </PostWrapper>
     );
   }

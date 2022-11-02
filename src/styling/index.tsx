@@ -10,3 +10,6 @@ export { toPx } from "./toPx";
 export { GlobalStyles } from "./globalStyles";
 
 export { Sizes } from "./Sizes";
+export { SnapElement } from "./SnapElement";
+
+export { FlexElement } from "./FlexElement";

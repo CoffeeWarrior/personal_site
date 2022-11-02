@@ -35,7 +35,6 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <GlobalStyles />
-          <Background></Background>
           {/* <Overlay /> */}
           {/* <Nav/> */}
           <Routes>

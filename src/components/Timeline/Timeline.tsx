@@ -3,36 +3,27 @@ import { colors, Sizes, toPx } from "../../styling";
 import React from "react";
 import { Post, PostProps } from "./Post";
 
-export type TimelineProps = { posts: PostProps[] };
+export type TimelineProps = {
+  post: PostProps;
+  showTimeline?: boolean;
+};
 
-const Scrollable = styled.div`
-  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-    overflow-y: scroll;
-    overflow-x: visible !important;
-    height: 70vh;
-    flex: 1;
-    padding-left: 10px;
-    overflow: scroll;
-  }
-`;
-
-export const Timeline: React.FC<TimelineProps> = ({ posts }) => {
+export const Timeline: React.FC<TimelineProps> = ({
+  post,
+  showTimeline = true,
+}) => {
   const timelineWidth = 6; //width in px
   const Timeline = styled.div`
-    border-left: ${toPx(timelineWidth)} solid ${colors.white};
+    border-left: ${showTimeline ? toPx(timelineWidth) : 0} solid ${colors.space};
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    flex: 1;
   `;
 
   return (
-    <Scrollable>
-      <Timeline>
-        {posts.map((post, i) => (
-          <Post timelineWidth={timelineWidth} key={i} {...post}></Post>
-        ))}
-      </Timeline>
-    </Scrollable>
+    <Timeline>
+      <Post timelineWidth={timelineWidth} {...post}></Post>
+    </Timeline>
   );
 };
