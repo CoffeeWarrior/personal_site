@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../styling";
+import { colors, Sizes } from "../styling";
 import React from "react";
 import { toPx } from "../styling";
 
@@ -29,7 +29,10 @@ const Content = styled.p`
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, header, subheader, children = null }, ref) => {
     const PostWrapper = styled.div`
-      margin-left: 40px;
+      margin-left: 15px;
+      @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+        margin-left: 40px;
+      }
       position: relative;
       flex: 1;
       align-self: flex-start;

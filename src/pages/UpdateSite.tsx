@@ -12,12 +12,14 @@ import {
 } from "../components";
 import styled from "styled-components";
 import { Draggable } from "react-drag-reorder";
+import { makePostValid } from "../utils";
 
 type postKeys = keyof PostProps;
 
 const UpdateSiteContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 80vh;
   gap: 20px;
 `;
 
@@ -28,7 +30,10 @@ export const UpdateSite = () => {
 
   useEffect(() => {
     read(firebaseResources.home).then((newPosts: PostProps[]) => {
-      const updatedPosts = [...posts, ...newPosts];
+      const updatedPosts = [
+        ...posts,
+        ...newPosts.map((post) => makePostValid(post)),
+      ];
       setPosts(updatedPosts);
     });
   }, []);

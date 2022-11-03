@@ -14,8 +14,8 @@ export const MoonLandingWrapper = styled.div`
   position: relative;
   flex: 1;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
-    width: 85%;
-    margin-left: 7.5%;
+    width: 80%;
+    margin-left: 10%;
   }
 `;
 

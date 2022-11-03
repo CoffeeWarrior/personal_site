@@ -10,6 +10,7 @@ import { InvisBackground } from "../components/MoonLanding/MoonLandingBackground
 import { InvisPageContainer } from "../components/PageContainer";
 import { SnapContainer } from "../styling/SnapElement";
 import { UseVisible } from "../hooks";
+import { makePostValid } from "../utils";
 const SnapElementsWrapper = styled.div`
   /* flex: 1; */
 `;
@@ -45,28 +46,7 @@ const FlexElement = styled.div`
   /* align-items: center; */
 `;
 
-const makeValidPost = (obj: any): PostProps => {
-  const validPost = { content: "", subheader: "", header: "", ...obj };
-  return validPost as PostProps;
-};
-
 export const Home = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
-
-  useEffect(() => {
-    read(firebaseResources.home).then((val: PostProps[]) => {
-      const validPosts: PostProps[] = val.map((val) => makeValidPost(val));
-
-      setPosts(validPosts);
-    });
-  }, []);
-
-  // useEffect(() => {
-  //   if (nextVisible == true) {
-  //     console.log("snapContainer[1] visible");
-  //   }
-  // }, [nextVisible]);
-
   return (
     <>
       <InvisPageContainer>
@@ -82,22 +62,42 @@ export const Home = () => {
           </SnapContainer>
         </div>
       </InvisPageContainer>
-
-      <PageContainer>
-        {/* <Nav></Nav> */}
-        <div>
-          {posts.map((post, i) => (
-            <SnapElement>
-              <HomeFlex>
-                <InvisBackground />
-                <Post {...post} key={i}>
-                  {i == 0 ? <SocialIcons></SocialIcons> : null}
-                </Post>
-              </HomeFlex>
-            </SnapElement>
-          ))}
-        </div>
-      </PageContainer>
+      <HomeContent />
     </>
+  );
+};
+
+const HomeContent = () => {
+  const [posts, setPosts] = useState<PostProps[]>([]);
+
+  useEffect(() => {
+    read(firebaseResources.home).then((val: PostProps[]) => {
+      const validPosts: PostProps[] = val.map((val) => makePostValid(val));
+
+      setPosts(validPosts);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   if (nextVisible == true) {
+  //     console.log("snapContainer[1] visible");
+  //   }
+  // }, [nextVisible]);
+  return (
+    <PageContainer>
+      {/* <Nav></Nav> */}
+      <div>
+        {posts.map((post, i) => (
+          <SnapElement>
+            <HomeFlex>
+              <InvisBackground />
+              <Post {...post} key={i}>
+                {i == 0 ? <SocialIcons></SocialIcons> : null}
+              </Post>
+            </HomeFlex>
+          </SnapElement>
+        ))}
+      </div>
+    </PageContainer>
   );
 };

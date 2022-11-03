@@ -35,12 +35,14 @@ export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
         {(Object.keys(post) as Array<postKeys>).map(
           (postKey: postKeys, index) => {
             return (
-              <PostInputUpdate
-                key={postKey + index}
-                postKey={postKey}
-                content={post[postKey] ?? ""}
-                onChange={handlePostUpdate}
-              />
+              <>
+                <PostInputUpdate
+                  key={postKey + index}
+                  postKey={postKey}
+                  content={post[postKey] ?? ""}
+                  onChange={handlePostUpdate}
+                />
+              </>
             );
           }
         )}
@@ -49,7 +51,7 @@ export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
 
     return (
       <>
-        <h1 onClick={() => setUpdateVisible(!updateVisible)}>{post.header}</h1>
+        <h2 onClick={() => setUpdateVisible(!updateVisible)}>{post.header}</h2>
         {updateVisible && postUpdateInputsByKeys}
       </>
     );
