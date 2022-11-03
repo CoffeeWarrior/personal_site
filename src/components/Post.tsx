@@ -26,6 +26,22 @@ const Content = styled.p`
   margin-bottom: 15px;
 `;
 
+const HighlightedTech = styled.span`
+  color: ${colors.flowerPurple};
+`;
+
+const HandleHighlight = (content: string): (React.ReactNode | string)[] => {
+  return content
+    .split("")
+    .map((char) => (char == "]" ? "[" : char))
+    .join("")
+    .split("[")
+    .filter((str) => str.length > 0)
+    .map((val, i) =>
+      i % 2 == 0 ? val : <HighlightedTech>{val}</HighlightedTech>
+    );
+};
+
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, header, subheader, children = null }, ref) => {
     const PostWrapper = styled.div`
@@ -38,11 +54,13 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
       align-self: flex-start;
     `;
 
+    const highlightedContent = <Content>{HandleHighlight(content)}</Content>;
+
     return (
       <PostWrapper ref={ref}>
         <Header>{header}</Header>
         <Subheader>{subheader}</Subheader>
-        <Content>{content}</Content>
+        {highlightedContent}
         {children}
       </PostWrapper>
     );

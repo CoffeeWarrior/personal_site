@@ -12,4 +12,5 @@ export const colors = {
   black: "#090a11",
   textShadow: "rgb(27, 25, 25)",
   space: "#001941",
+  flowerPurple: "#6f5da1",
 };

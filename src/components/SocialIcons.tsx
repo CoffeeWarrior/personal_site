@@ -59,20 +59,6 @@ export const SocialIcons = () => {
 
   return (
     <FlexboxContainer>
-      <Item onClick={() => copyTextToClipboard("Lucas.Goldman99@gmail.com")}>
-        <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
-      </Item>
-      <a
-        style={{ textDecoration: "none" }}
-        href={"https://www.linkedin.com/in/lucasgoldman99/"}
-        target="_blank"
-        rel="noreferrer noopener"
-        title="My LinkedIn"
-      >
-        <Item>
-          <Icon alt="" src={LinkedinIcon}></Icon>
-        </Item>
-      </a>
       <a
         style={{ textDecoration: "none" }}
         href={"https://github.com/coffeewarrior"}
@@ -84,6 +70,24 @@ export const SocialIcons = () => {
           <Icon alt="" src={GithubIcon}></Icon>
         </Item>
       </a>
+      <a
+        style={{ textDecoration: "none" }}
+        href={"https://www.linkedin.com/in/lucasgoldman99/"}
+        target="_blank"
+        rel="noreferrer noopener"
+        title="My LinkedIn"
+      >
+        <Item>
+          <Icon alt="" src={LinkedinIcon}></Icon>
+        </Item>
+      </a>
+      <Item onClick={() => copyTextToClipboard("Lucas.Goldman99@gmail.com")}>
+        <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
+        <p style={{ opacity: copied ? "1" : "0", marginTop: "-3px" }}>
+          Copied to <br />
+          Clipboard
+        </p>
+      </Item>
     </FlexboxContainer>
   );
 };
