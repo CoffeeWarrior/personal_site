@@ -27,7 +27,7 @@ const Content = styled.p`
 `;
 
 const HighlightedTech = styled.span`
-  color: ${colors.flowerPurple};
+  color: ${colors.flowerGreen};
 `;
 
 const HandleHighlight = (content: string): (React.ReactNode | string)[] => {
