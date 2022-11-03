@@ -9,7 +9,7 @@ export type flowerProps = {
 
 export const Flowers: React.FC<flowerProps> = ({ delay, src }) => {
   const Flowers = styled(AbsPositionCenter)`
-    z-index: 2;
+    z-index: 97;
     ${twinkle(delay)}
   `;
   return <Flowers src={src}></Flowers>;

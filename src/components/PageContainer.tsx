@@ -12,10 +12,12 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  box-sizing: content-box;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden !important;
+  @media only screen and (max-width: ${Sizes.maxWidthMobileL}) {
+    padding-top: 4vh;
+  }
 `;
 
 export const InvisPageContainer: React.FC<PageContainerProps> = ({
@@ -24,6 +26,7 @@ export const InvisPageContainer: React.FC<PageContainerProps> = ({
   const Background = styled(Container)`
     position: fixed;
     pointer-events: none;
+    z-index: 100;
   `;
 
   return <Background>{children}</Background>;

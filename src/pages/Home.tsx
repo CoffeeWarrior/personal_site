@@ -1,60 +1,102 @@
 import React from "react";
-import { MoonLanding, Nav, SocialIcons } from "../components";
+import { MoonLanding, Nav, Post, SocialIcons, Timeline } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
-import { PageContainer, Timeline, PostProps, Header } from "../components";
+import { PageContainer, PostProps, Header } from "../components";
 import styled from "styled-components";
-import { Flexbox, Sizes, SnapElement } from "../styling";
+import { colors, Flexbox, Sizes, SnapElement } from "../styling";
 import { InvisBackground } from "../components/MoonLanding/MoonLandingBackground";
 import { InvisPageContainer } from "../components/PageContainer";
-import { SnapElementContainer } from "../styling/SnapElement";
+import { SnapContainer } from "../styling/SnapElement";
+import { UseVisible } from "../hooks";
 const SnapElementsWrapper = styled.div`
   /* flex: 1; */
 `;
 
 const HomeFlex = styled(Flexbox)`
-  width: 95%;
-  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-    width: 70%;
+  width: 70%;
+  @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
+    align-items: center;
+    width: 95%;
+    height: 100%;
   }
 `;
+
+const Background = styled.div`
+  height: 110%;
+  width: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+    180deg,
+    ${colors.background} 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 5;
+  top: -10vh;
+  left: 0;
+`;
+
+const FlexElement = styled.div`
+  flex: 1;
+  position: relative;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+`;
+
+const makeValidPost = (obj: any): PostProps => {
+  const validPost = { content: "", subheader: "", header: "", ...obj };
+  return validPost as PostProps;
+};
 
 export const Home = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
   useEffect(() => {
     read(firebaseResources.home).then((val: PostProps[]) => {
-      setPosts(val);
+      const validPosts: PostProps[] = val.map((val) => makeValidPost(val));
+
+      setPosts(validPosts);
     });
   }, []);
 
+  // useEffect(() => {
+  //   if (nextVisible == true) {
+  //     console.log("snapContainer[1] visible");
+  //   }
+  // }, [nextVisible]);
+
   return (
     <>
-      <Nav></Nav>
-
       <InvisPageContainer>
-        <SnapElementsWrapper>
-          <SnapElementContainer>
+        <div>
+          <SnapContainer>
             <HomeFlex>
-              <MoonLanding></MoonLanding>
+              <FlexElement>
+                <MoonLanding></MoonLanding>
+                <Background></Background>
+              </FlexElement>
               <InvisBackground></InvisBackground>
             </HomeFlex>
-          </SnapElementContainer>
-        </SnapElementsWrapper>
+          </SnapContainer>
+        </div>
       </InvisPageContainer>
 
       <PageContainer>
-        <SnapElementsWrapper>
+        {/* <Nav></Nav> */}
+        <div>
           {posts.map((post, i) => (
             <SnapElement>
               <HomeFlex>
                 <InvisBackground />
-                <Timeline post={post} key={i} />
+                <Post {...post} key={i}>
+                  {i == 0 ? <SocialIcons></SocialIcons> : null}
+                </Post>
               </HomeFlex>
             </SnapElement>
           ))}
-        </SnapElementsWrapper>
+        </div>
       </PageContainer>
     </>
   );

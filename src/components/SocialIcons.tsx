@@ -9,7 +9,8 @@ import LinkedinIcon from "../images/icons/linkedinIcon.png";
 import styled from "styled-components";
 import { colors, Flexbox, Sizes } from "../styling";
 
-const FlexboxContainer = styled(Flexbox)`
+const FlexboxContainer = styled.div`
+  display: flex;
   flex: 1;
   justify-content: flex-start;
   align-items: baseline;
@@ -43,15 +44,8 @@ export const SocialIcons = () => {
 
   //const images = [GithubIcon, LinkedinIcon, EmailIcon];
 
-  const [posts, setPosts] = useState(["", "", ""]);
   const [copied, setCopied] = useState(false); //maybe want to give some indication when copied
   const copiedPopupDuration = 1025;
-
-  useEffect(() => {
-    read(firebaseResources.contact).then((val) => {
-      setPosts(val.posts);
-    });
-  }, []);
 
   const copyTextToClipboard = async (text: any) => {
     if ("clipboard" in navigator) {
@@ -65,12 +59,12 @@ export const SocialIcons = () => {
 
   return (
     <FlexboxContainer>
-      <Item onClick={() => copyTextToClipboard(posts[2])}>
+      <Item onClick={() => copyTextToClipboard("Lucas.Goldman99@gmail.com")}>
         <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
       </Item>
       <a
         style={{ textDecoration: "none" }}
-        href={posts[1]}
+        href={"https://www.linkedin.com/in/lucasgoldman99/"}
         target="_blank"
         rel="noreferrer noopener"
         title="My LinkedIn"
@@ -81,7 +75,7 @@ export const SocialIcons = () => {
       </a>
       <a
         style={{ textDecoration: "none" }}
-        href={posts[0]}
+        href={"https://github.com/coffeewarrior"}
         target="_blank"
         rel="noreferrer noopener"
         title="My Github"

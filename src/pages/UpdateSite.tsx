@@ -23,7 +23,7 @@ const UpdateSiteContainer = styled.div`
 
 export const UpdateSite = () => {
   const [posts, setPosts] = useState<PostProps[]>([
-    { content: "", header: "Write a new post" },
+    { content: "", header: "Write a new post", subheader: "" },
   ]);
 
   useEffect(() => {

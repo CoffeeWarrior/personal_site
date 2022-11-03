@@ -8,10 +8,15 @@ import { FloatingImg } from "./FloatingImg";
 import styled from "styled-components";
 import React from "react";
 import { StaticImg } from "./StaticImg";
+import { Sizes } from "../../styling";
 
-const MoonLandingWrapper = styled.div`
+export const MoonLandingWrapper = styled.div`
   position: relative;
   flex: 1;
+  @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
+    width: 85%;
+    margin-left: 7.5%;
+  }
 `;
 
 const lucasDelay = 0.3;
@@ -23,7 +28,7 @@ export const MoonLanding: React.FC = () => {
     <MoonLandingWrapper>
       <MoonLandingBackground />
 
-      <StaticImg src={moon} zIndex={2} />
+      <StaticImg src={moon} zIndex={100} />
       <FloatingImg
         src={lucas}
         delayFirst={lucasDelay}

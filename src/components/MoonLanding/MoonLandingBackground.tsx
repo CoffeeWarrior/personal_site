@@ -10,11 +10,8 @@ import flowers3 from "../../images/SpaceDrawings/IndividualImages/flowers-3.png"
 import flowers4 from "../../images/SpaceDrawings/IndividualImages/flowers-4.png";
 import flowers5 from "../../images/SpaceDrawings/IndividualImages/flowers-5.png";
 import styled from "styled-components";
-
-const MoonLandingWrapper = styled.div`
-  position: relative;
-  flex: 1;
-`;
+import { MoonLandingWrapper } from "./MoonLanding";
+import { colors } from "../../styling";
 
 export const InvisBackground = () => (
   <MoonLandingWrapper>
@@ -25,8 +22,8 @@ export const InvisBackground = () => (
 export const MoonLandingBackground = () => (
   <>
     <Invis src={background} />
-    <StaticImg src={background} zIndex={0} />
-    <StaticImg src={stars} zIndex={1} />
+    <StaticImg src={background} zIndex={95} />
+    <StaticImg src={stars} zIndex={96} />
 
     <Flowers src={flowers1} delay={1} />
     <Flowers src={flowers2} delay={2} />

@@ -16,7 +16,7 @@ export const FloatingImg: React.FC<floatingImgProps> = ({
   durationSecond,
 }) => {
   const Image = styled(AbsPositionCenter)`
-    z-index: 4;
+    z-index: 101;
     ${Floating(delayFirst, durationFirst, durationSecond)}
   `;
 

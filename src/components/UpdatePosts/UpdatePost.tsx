@@ -1,4 +1,4 @@
-import { PostProps } from "../Timeline/Post";
+import { PostProps } from "../Post";
 import React, { SyntheticEvent, useImperativeHandle, useState } from "react";
 import { PostInputUpdate } from "./PostInputUpdate";
 import { Flexbox } from "../../styling";
@@ -38,7 +38,7 @@ export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
               <PostInputUpdate
                 key={postKey + index}
                 postKey={postKey}
-                content={post[postKey]}
+                content={post[postKey] ?? ""}
                 onChange={handlePostUpdate}
               />
             );
