@@ -1,9 +1,8 @@
 import React from "react";
-import links from "../../../routing/links/links";
+import links from "../routing/links/links";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors, Sizes } from "../../../styling";
-import { SocialIcons } from "../../SocialIcons";
+import { colors, Sizes } from "../styling";
 
 const DIV = styled.div`
   display: flex;
@@ -18,7 +17,6 @@ const DIV = styled.div`
 
 const H2 = styled.h2`
   list-style: None;
-  color: ${colors.white};
   border-bottom: 1px solid ${colors.white};
   &:hover {
     color: ${colors.whiterWhite};
@@ -31,26 +29,32 @@ const LINK = styled(Link)`
 `;
 
 const NAV = styled.nav`
-  flex: 1;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: ${colors.background};
+
+  @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
+    display: none;
+  }
 `;
 
 export const Nav = () => {
   return (
     <NAV>
       <DIV>
-        <SocialIcons></SocialIcons>
-        {/* <LINK to={links.home}>
-          <H2>Home</H2>
-        </LINK> */}
-        {/* <LINK to={links.projects}>
+        <LINK to={links.home}>
+          <H2>About me</H2>
+        </LINK>
+        <LINK to={links.projects}>
           <H2>Projects</H2>
-        </LINK> */}
+        </LINK>
         {/* <LINK to={links.resume}>
           <H2>Resume</H2>
         </LINK> */}
-        {/* <LINK to={links.contact}>
+        <LINK to={links.contact}>
           <H2>Contact</H2>
-        </LINK> */}
+        </LINK>
         {/* <LINK to={links.myFeed}><H2>My Feed</H2></LINK> */}
         {/* <LINK to={links.login}>
           <H2>Login</H2>

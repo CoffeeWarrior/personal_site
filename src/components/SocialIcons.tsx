@@ -9,16 +9,16 @@ import LinkedinIcon from "../images/icons/linkedinIcon.png";
 import styled from "styled-components";
 import { colors, Flexbox, Sizes } from "../styling";
 
-// const FlexboxContainer = styled(Flexbox)`
-//   flex: 1;
-//   background: rgba(0, 0, 0, 0.2);
-//   justify-content: center;
-//   align-items: baseline;
-//   gap: 4px;
-//   @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-//     gap: 20px;
-//   }
-// `;
+const FlexboxContainer = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 4px;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+    gap: 20px;
+  }
+`;
 
 const Item = styled.div`
   display: flex;
@@ -44,15 +44,8 @@ export const SocialIcons = () => {
 
   //const images = [GithubIcon, LinkedinIcon, EmailIcon];
 
-  const [posts, setPosts] = useState(["", "", ""]);
   const [copied, setCopied] = useState(false); //maybe want to give some indication when copied
   const copiedPopupDuration = 1025;
-
-  useEffect(() => {
-    read(firebaseResources.contact).then((val) => {
-      setPosts(val.posts);
-    });
-  }, []);
 
   const copyTextToClipboard = async (text: any) => {
     if ("clipboard" in navigator) {
@@ -65,24 +58,10 @@ export const SocialIcons = () => {
   };
 
   return (
-    <>
-      <Item onClick={() => copyTextToClipboard(posts[2])}>
-        <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
-      </Item>
+    <FlexboxContainer>
       <a
         style={{ textDecoration: "none" }}
-        href={posts[1]}
-        target="_blank"
-        rel="noreferrer noopener"
-        title="My LinkedIn"
-      >
-        <Item>
-          <Icon alt="" src={LinkedinIcon}></Icon>
-        </Item>
-      </a>
-      <a
-        style={{ textDecoration: "none" }}
-        href={posts[0]}
+        href={"https://github.com/coffeewarrior"}
         target="_blank"
         rel="noreferrer noopener"
         title="My Github"
@@ -91,6 +70,24 @@ export const SocialIcons = () => {
           <Icon alt="" src={GithubIcon}></Icon>
         </Item>
       </a>
-    </>
+      <a
+        style={{ textDecoration: "none" }}
+        href={"https://www.linkedin.com/in/lucasgoldman99/"}
+        target="_blank"
+        rel="noreferrer noopener"
+        title="My LinkedIn"
+      >
+        <Item>
+          <Icon alt="" src={LinkedinIcon}></Icon>
+        </Item>
+      </a>
+      <Item onClick={() => copyTextToClipboard("Lucas.Goldman99@gmail.com")}>
+        <Icon alt="" src={EmailIcon} title="Copy My Email"></Icon>
+        <p style={{ opacity: copied ? "1" : "0", marginTop: "-3px" }}>
+          Copied to <br />
+          Clipboard
+        </p>
+      </Item>
+    </FlexboxContainer>
   );
 };

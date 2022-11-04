@@ -1,6 +1,6 @@
 const links = {
   home: "/Home",
-  // contact: "/Contact",
+  contact: "/Contact",
   // myFeed: "/MyFeed",
   projects: "/Projects",
   resume: "/Resume",
