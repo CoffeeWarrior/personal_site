@@ -10,4 +10,5 @@ export const SnapContainer = styled(Flexbox)`
 export const SnapElement = styled(SnapContainer)`
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  position: relative;
 `;

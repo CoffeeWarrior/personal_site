@@ -16,7 +16,9 @@ const SnapElementsWrapper = styled.div`
 `;
 
 const HomeFlex = styled(Flexbox)`
+  position: relative;
   width: 70%;
+  gap: 20px;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     align-items: center;
     width: 95%;
@@ -24,13 +26,13 @@ const HomeFlex = styled(Flexbox)`
   }
 `;
 
-const Background = styled.div`
-  height: 110%;
+const FadeOutField = styled.div`
+  height: 105%;
   width: 100%;
   position: absolute;
   background-image: linear-gradient(
     180deg,
-    ${colors.background} 80%,
+    ${colors.background} 90%,
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 5;
@@ -55,7 +57,7 @@ export const Home = () => {
             <HomeFlex>
               <FlexElement>
                 <MoonLanding></MoonLanding>
-                <Background></Background>
+                <FadeOutField></FadeOutField>
               </FlexElement>
               <InvisBackground></InvisBackground>
             </HomeFlex>
@@ -83,6 +85,10 @@ const HomeContent = () => {
   //     console.log("snapContainer[1] visible");
   //   }
   // }, [nextVisible]);
+
+  useEffect(() => {
+    console.log("scrolled");
+  }, [window.scrollY]);
   return (
     <PageContainer>
       {/* <Nav></Nav> */}
