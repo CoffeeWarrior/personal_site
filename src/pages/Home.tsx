@@ -28,8 +28,8 @@ const HomeFlex = styled(Flexbox)`
 
 const FadeOutField = styled.div`
   flex: 1;
-  height: 100%;
-  width: 100%;
+  height: 55vh;
+  min-width: 100vw;
   position: absolute;
   background-image: linear-gradient(
     180deg,
@@ -37,20 +37,21 @@ const FadeOutField = styled.div`
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 5;
-  left: 0;
+  top: -6vh;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+    display: none;
+  }
 `;
 
 const FlexElement = styled.div`
   position: relative;
   justify-content: center;
-
   flex: 1;
   max-height: 100%;
   max-width: 100%;
   display: flex;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Home = () => {

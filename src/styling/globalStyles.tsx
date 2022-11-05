@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${colors.space};
     font-family: "Source Code Pro", sans-serif;
     min-width: 0; min-height: 0;
+
     }
 
     h1{

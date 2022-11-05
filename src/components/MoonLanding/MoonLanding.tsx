@@ -13,6 +13,11 @@ import { Sizes } from "../../styling";
 export const MoonLandingWrapper = styled.div`
   position: relative;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
   /* @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     width: 80%;
     margin-left: 10%;
