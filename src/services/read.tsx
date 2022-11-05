@@ -5,11 +5,11 @@ const read = async (link: string) => {
   const dbRef = ref(getDatabase());
   const result = await get(child(dbRef, `${link}`))
     .then((snapshot) => {
-      console.log(`link is: ${link}`);
+      // console.log(`link is: ${link}`);
       if (snapshot.exists()) {
         return snapshot.val();
       } else {
-        console.log("No data available");
+        // console.log("No data available");
       }
     })
     .catch((error) => {

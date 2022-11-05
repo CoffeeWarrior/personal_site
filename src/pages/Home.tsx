@@ -92,15 +92,12 @@ const HomeContent = () => {
   //   }
   // }, [nextVisible]);
 
-  useEffect(() => {
-    console.log("scrolled");
-  }, [window.scrollY]);
   return (
     <PageContainer>
       {/* <Nav></Nav> */}
       <div>
         {posts.map((post, i) => (
-          <SnapElement>
+          <SnapElement index={i}>
             <HomeFlex>
               <InvisBackground />
               <Post {...post} key={i}>
