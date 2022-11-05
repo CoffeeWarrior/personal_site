@@ -18,7 +18,7 @@ const SnapElementsWrapper = styled.div`
 const HomeFlex = styled(Flexbox)`
   position: relative;
   width: 85%;
-  gap: 20px;
+  gap: 25px;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     align-items: center;
     width: 95%;
@@ -28,7 +28,7 @@ const HomeFlex = styled(Flexbox)`
 
 const FadeOutField = styled.div`
   flex: 1;
-  height: 55vh;
+  height: 105%;
   min-width: 100vw;
   position: absolute;
   background-image: linear-gradient(

@@ -43,13 +43,11 @@ const HandleHighlight = (content: string): (React.ReactNode | string)[] => {
 };
 
 const PostWrapper = styled.div`
-  margin-left: 15px;
-  /* padding-bottom: 2vh; */
+  padding-bottom: 2vh;
   position: relative;
   flex: 1;
   align-self: flex-start;
   @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-    margin-left: 40px;
   }
 `;
 
