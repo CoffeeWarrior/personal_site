@@ -15,8 +15,11 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   overflow-x: hidden !important;
-  @media only screen and (max-width: ${Sizes.maxWidthMobileL}) {
+  @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     padding-top: 4vh;
+  }
+  @media only screen and (max-width: ${Sizes.maxWidthMobileL}) {
+    padding-top: 2vh;
   }
 `;
 
