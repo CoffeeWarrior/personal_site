@@ -1,5 +1,5 @@
 import React from "react";
-import { MoonLanding, Nav, Post, SocialIcons, Timeline } from "../components";
+import { MoonLanding, Post, SocialIcons, Timeline } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
@@ -17,7 +17,7 @@ const SnapElementsWrapper = styled.div`
 
 const HomeFlex = styled(Flexbox)`
   position: relative;
-  width: 70%;
+  width: 85%;
   gap: 20px;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     align-items: center;
@@ -27,22 +27,27 @@ const HomeFlex = styled(Flexbox)`
 `;
 
 const FadeOutField = styled.div`
-  height: 105%;
+  flex: 1;
+  height: 100%;
   width: 100%;
   position: absolute;
   background-image: linear-gradient(
     180deg,
-    ${colors.background} 90%,
+    ${colors.background} 95%,
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 5;
-  top: -10vh;
   left: 0;
 `;
 
 const FlexElement = styled.div`
-  flex: 1;
   position: relative;
+  justify-content: center;
+
+  flex: 1;
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */

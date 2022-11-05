@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     color: ${colors.space};
     font-family: "Source Code Pro", sans-serif;
+    min-width: 0; min-height: 0;
     }
 
     h1{
