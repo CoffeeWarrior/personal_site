@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 type UpdatePostsProps = {
   post: PostProps;
+  deletePost: Function;
 };
 
 type postKeys = keyof PostProps;
@@ -14,8 +15,10 @@ const ColumnFlexbox = styled(Flexbox)`
   flex-direction: column;
 `;
 
+const UpdatePostWrapper = styled.div``;
+
 export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
-  ({ post }, ref: React.Ref<PostProps>) => {
+  ({ post, deletePost }, ref: React.Ref<PostProps>) => {
     const [updateVisible, setUpdateVisible] = useState(false);
     const [postState, setPostState] = useState<PostProps>(post);
 
@@ -28,6 +31,12 @@ export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
       const newPost: PostProps = postState;
       newPost[postKey] = event.currentTarget.value;
       setPostState(newPost);
+    };
+
+    const handleDelete = () => {
+      setPostState({ content: "", header: "", subheader: "" });
+      console.log(postState);
+      deletePost();
     };
 
     const postUpdateInputsByKeys = (
@@ -46,14 +55,15 @@ export const UpdatePost = React.forwardRef<PostProps, UpdatePostsProps>(
             );
           }
         )}
+        <button onClick={() => deletePost()}>Delete</button>
       </ColumnFlexbox>
     );
 
     return (
-      <>
+      <UpdatePostWrapper>
         <h2 onClick={() => setUpdateVisible(!updateVisible)}>{post.header}</h2>
         {updateVisible && postUpdateInputsByKeys}
-      </>
+      </UpdatePostWrapper>
     );
   }
 );

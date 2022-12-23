@@ -17,6 +17,11 @@ export const GlobalStyles = createGlobalStyle`
 
     }
 
+    html, body{
+        position: fixed;
+        overflow: hidden;
+    }
+
     h1{
         letter-spacing: 2px;
         font-weight: 500;
@@ -45,5 +50,9 @@ export const GlobalStyles = createGlobalStyle`
             letter-spacing: 1px;
             
         }
+    }
+
+    .grabbable {
+        flex: auto !important
     }
 `;
