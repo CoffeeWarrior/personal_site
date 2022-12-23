@@ -30,7 +30,7 @@ export const Login = () => {
   useEffect(() => {
     read(firebaseResources.login).then((val) => {
       setText(val.posts[0]);
-      console.log(val);
+      // console.log(val);
     });
   }, []);
 

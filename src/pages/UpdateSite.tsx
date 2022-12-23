@@ -16,6 +16,10 @@ import { makePostValid } from "../utils";
 
 type postKeys = keyof PostProps;
 
+const StyledDrag = styled(Draggable)`
+  display: flex;
+`;
+
 const UpdateSiteContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,6 +41,14 @@ export const UpdateSite = () => {
       setPosts(updatedPosts);
     });
   }, []);
+
+  const handleDelete = async (index: number) => {
+    let posts = refs.current.filter((post, i) => i != index);
+    posts = posts.filter((post) => post.content);
+    await post(firebaseResources.home, posts);
+
+    window.location.reload();
+  };
 
   const handleUpdateSite = async () => {
     const posts = refs.current.filter((post) => post.content);
@@ -62,6 +74,7 @@ export const UpdateSite = () => {
           {posts.map((post, i) => (
             <UpdatePost
               post={post}
+              deletePost={() => handleDelete(i)}
               ref={(element) => {
                 refs.current.push(element);
                 if (refs.current.length > posts.length) {

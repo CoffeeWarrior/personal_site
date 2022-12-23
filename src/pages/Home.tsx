@@ -1,5 +1,5 @@
 import React from "react";
-import { MoonLanding, Nav, Post, SocialIcons, Timeline } from "../components";
+import { MoonLanding, Post, SocialIcons, Timeline } from "../components";
 import { useState, useEffect } from "react";
 import firebaseResources from "../services/firebaseResources";
 import read from "../services/read";
@@ -16,7 +16,9 @@ const SnapElementsWrapper = styled.div`
 `;
 
 const HomeFlex = styled(Flexbox)`
-  width: 70%;
+  position: relative;
+  width: 85%;
+  gap: 25px;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     align-items: center;
     width: 95%;
@@ -24,26 +26,32 @@ const HomeFlex = styled(Flexbox)`
   }
 `;
 
-const Background = styled.div`
-  height: 110%;
-  width: 100%;
+const FadeOutField = styled.div`
+  flex: 1;
+  height: 105%;
+  min-width: 100vw;
   position: absolute;
   background-image: linear-gradient(
     180deg,
-    ${colors.background} 80%,
+    ${colors.background} 95%,
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 5;
-  top: -10vh;
-  left: 0;
+  top: -6vh;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+    display: none;
+  }
 `;
 
 const FlexElement = styled.div`
-  flex: 1;
   position: relative;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  flex: 1;
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Home = () => {
@@ -55,7 +63,7 @@ export const Home = () => {
             <HomeFlex>
               <FlexElement>
                 <MoonLanding></MoonLanding>
-                <Background></Background>
+                <FadeOutField></FadeOutField>
               </FlexElement>
               <InvisBackground></InvisBackground>
             </HomeFlex>
@@ -83,12 +91,13 @@ const HomeContent = () => {
   //     console.log("snapContainer[1] visible");
   //   }
   // }, [nextVisible]);
+
   return (
     <PageContainer>
       {/* <Nav></Nav> */}
       <div>
         {posts.map((post, i) => (
-          <SnapElement>
+          <SnapElement index={i}>
             <HomeFlex>
               <InvisBackground />
               <Post {...post} key={i}>

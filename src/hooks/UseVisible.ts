@@ -14,7 +14,7 @@ export function UseVisible(): any {
       const observer = new IntersectionObserver(callback, {
         root: null,
         rootMargin: "0px",
-        threshold: 1,
+        threshold: 0.05,
       });
       observer.observe(containerRef.current);
     }

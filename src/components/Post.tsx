@@ -42,18 +42,17 @@ const HandleHighlight = (content: string): (React.ReactNode | string)[] => {
     );
 };
 
+const PostWrapper = styled.div`
+  padding-bottom: 2vh;
+  position: relative;
+  flex: 1;
+  align-self: flex-start;
+  @media only screen and (min-width: ${Sizes.minWidthTablet}) {
+  }
+`;
+
 export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
   ({ content, header, subheader, children = null }, ref) => {
-    const PostWrapper = styled.div`
-      margin-left: 15px;
-      @media only screen and (min-width: ${Sizes.minWidthTablet}) {
-        margin-left: 40px;
-      }
-      position: relative;
-      flex: 1;
-      align-self: flex-start;
-    `;
-
     const highlightedContent = <Content>{HandleHighlight(content)}</Content>;
 
     return (
