@@ -24,6 +24,7 @@ const Subheader = styled.h2`
 
 const Content = styled.p`
   margin-bottom: 15px;
+  white-space: pre-wrap;
 `;
 
 const HighlightedTech = styled.span`
