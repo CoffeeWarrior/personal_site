@@ -21,7 +21,7 @@ const HomeFlex = styled(Flexbox)`
   gap: 25px;
   @media only screen and (max-width: ${Sizes.maxWidthTablet}) {
     align-items: center;
-    width: 95%;
+    //width: 95%;
     height: 100%;
   }
 `;
@@ -98,7 +98,7 @@ const HomeContent = () => {
       <div>
         {posts.map((post, i) => (
           <SnapElement index={i}>
-            <HomeFlex>
+            <HomeFlex className="homeFlex">
               <InvisBackground />
               <Post {...post} key={i}>
                 {i == 0 ? <SocialIcons></SocialIcons> : null}

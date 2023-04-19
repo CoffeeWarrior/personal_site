@@ -57,7 +57,7 @@ export const Post = React.forwardRef<HTMLDivElement, PostElementProps>(
     const highlightedContent = <Content>{HandleHighlight(content)}</Content>;
 
     return (
-      <PostWrapper ref={ref}>
+      <PostWrapper className="PostWrapper" ref={ref}>
         <Header>{header}</Header>
         <Subheader>{subheader}</Subheader>
         {highlightedContent}
